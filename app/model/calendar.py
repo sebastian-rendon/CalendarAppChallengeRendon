@@ -53,6 +53,15 @@ class Day:
             for minute in range(0, 60, 15):
                 self.slots[time(hour, minute)] = None
 
+    def add_event(self, event_id: str, start_at: time, end_at: time):
+        for slot in self.slots:
+            if start_at <= slot < end_at:
+                if self.slots[slot]:
+                    slot_not_available_error()
+                self.slots[slot] = event_id
+
+
+
 pass
 
 
