@@ -32,12 +32,12 @@ las siguientes instrucciones:
    - La clase se debe implementar como una dataclass.
    - Los atributos `title` de tipo `str`, `description` de tipo `str`, `date_` de tipo `date`, `start_at` de tipo 
    `time` y `end_at` de tipo `time` se deben inicializar con parámetros en el constructor de forma obligatoria.
-   - El atributo `reminders` de tipo `list[Reminder]` no se inicializa con parámetro en el constructor y debe tener como valor 
-   por defecto una lista vacía.
+   - El atributo `reminders` de tipo `list[Reminder]` no se inicializa con parámetro en el constructor y debe tener como valor por defecto una lista vacía.
    - El atributo `id` de tipo `str` se inicializa con un parámetro opcional en el constructor, pero debe tener un valor por 
    defecto igual al resultado de invocar la función `generate_unique_id` que se encuentra en el módulo `app.services.util`.
      (Utiliza el parámetro `default_factory` de la función `field` de la librería `dataclasses` para asignar el valor por
         defecto).
+
    - El método `add_reminder` crea un objeto de la clase `Reminder` con los parámetros recibidos y lo agrega a la lista
    `reminders` del evento.
    - El método `delete_reminder` recibe un parámetro `reminder_index` de tipo `int` que representa un índice de la lista
