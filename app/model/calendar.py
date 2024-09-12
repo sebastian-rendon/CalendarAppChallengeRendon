@@ -40,9 +40,20 @@ class Event:
     def __str__(self):
         return f"ID: {self.id}\nEvent title: {self.title}\nDescription: {self.description}\nTime: {self.start_at} - {self.end_at}"
 
-    pass
 
-# TODO: Implement Day class here
+class Day:
+    def __init__(self, date_: date):
+        self.date_ = date_
+        self.slots: dict[time, str | None] = {}
+        self._init_slots()
+
+    def _init_slots(self):
+        from datetime import time
+        for hour in range(24):
+            for minute in range(0, 60, 15):
+                self.slots[time(hour, minute)] = None
+
+pass
 
 
 # TODO: Implement Calendar class here

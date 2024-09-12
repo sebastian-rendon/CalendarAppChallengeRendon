@@ -59,6 +59,7 @@ las siguientes instrucciones:
    - El atributo `slots` de tipo `dict[time, str | None]` no se inicializa con un parámetro en el constructor. Su 
    valor inicial es un diccionario vacío.
    - Al final del cuerpo del constructor, se debe invocar el método `_init_slots`
+   
    - El método `_init_slots` inicializa el diccionario `slots` con las horas del día (de 00:00 a 23:45 con espacios de 
    15 minutos) como claves y `None` como valores iniciales. 
    
