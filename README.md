@@ -19,20 +19,27 @@ las siguientes instrucciones:
 1. **Clase** `Reminder`
 
    - La clase se debe implementar como una dataclass.
+
    - Las constantes `EMAIL` y `SYSTEM` se deben implementar como variables de clase con los valores por defecto "email" y 
    "system" respectivamente.
+
    - El atributo `date_time` debe ser de tipo `datetime` y se inicializa en el constructor de forma obligatoria.
-   - El atributo `type` de ser de tipo `str` y se inicializa en el constructor de forma opcional, ya que debe tener como 
+    
+   - El atributo `type` debe ser de tipo `str` y se inicializa en el constructor de forma opcional, ya que debe tener como 
    valor por defecto la constante `EMAIL`.
+
    - El método `__str__` retorna una cadena de texto con el siguiente formato: 
    `"Reminder on {date_time} of type {type}"`.  
 
 2. **Clase** `Event`
 
    - La clase se debe implementar como una dataclass.
+
    - Los atributos `title` de tipo `str`, `description` de tipo `str`, `date_` de tipo `date`, `start_at` de tipo 
    `time` y `end_at` de tipo `time` se deben inicializar con parámetros en el constructor de forma obligatoria.
+
    - El atributo `reminders` de tipo `list[Reminder]` no se inicializa con parámetro en el constructor y debe tener como valor por defecto una lista vacía.
+
    - El atributo `id` de tipo `str` se inicializa con un parámetro opcional en el constructor, pero debe tener un valor por 
    defecto igual al resultado de invocar la función `generate_unique_id` que se encuentra en el módulo `app.services.util`.
      (Utiliza el parámetro `default_factory` de la función `field` de la librería `dataclasses` para asignar el valor por
@@ -40,10 +47,12 @@ las siguientes instrucciones:
 
    - El método `add_reminder` crea un objeto de la clase `Reminder` con los parámetros recibidos y lo agrega a la lista
    `reminders` del evento.
+
    - El método `delete_reminder` recibe un parámetro `reminder_index` de tipo `int` que representa un índice de la lista
     `reminders`. En el cuerpo del método verifica si el índice es válido (corresponde a un elemento de la lista) y en 
     caso afirmativo elimina el elemento de la lista `reminders` en la posición indicada por el índice. En caso contrario,
    invoca la función `reminder_not_found_error` que se encuentra en el módulo `app.services.util`.
+
    - El método `__str__` retorna una cadena de texto con el siguiente formato: 
    ```text
    ID: {id}
@@ -55,11 +64,14 @@ las siguientes instrucciones:
 3. **Clase** `Day`
 
    - La clase **no** se debe implementar como una dataclass, sino como una clase normal.
+
    - El atributo `date_` de tipo `date` se inicializa con un parámetro en el constructor de forma obligatoria.
+
    - El atributo `slots` de tipo `dict[time, str | None]` no se inicializa con un parámetro en el constructor. Su 
    valor inicial es un diccionario vacío.
+
    - Al final del cuerpo del constructor, se debe invocar el método `_init_slots`
-   
+
    - El método `_init_slots` inicializa el diccionario `slots` con las horas del día (de 00:00 a 23:45 con espacios de 
    15 minutos) como claves y `None` como valores iniciales. 
    
@@ -72,6 +84,7 @@ las siguientes instrucciones:
    en el rango de tiempo dado (sin incluir el slot correspondiente a `end_at`). Además, debe verificar que el evento
    no se incluya en slots que ya están ocupados. Si hay alguno de los slot del rango ocupado, el método invoca la función 
     `slot_not_available_error` que se encuentra en el módulo `app.services.util`.
+    
    - Para completar la clase, pega el siguiente código al final de la clase:
    
     ```python
